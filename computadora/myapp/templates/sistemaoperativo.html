@@ -1,0 +1,37 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+ <a href="{% url 'sistemaoperativolista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                     <h4 text align="center" style= "color: green"><b>Actualizar Sistemas Operativos </h4>
+            <form action="{% url 'actualizar_sistemaoperativo' idv %}" method="post">
+               {% csrf_token %}
+
+                  <p ><strong style= "color: #537A51 ">Sistema Operativo:</strong>{{form.sistemaoperativo}}</p> 
+                  <p ><strong style= "color: #537A51 ">Equipo:</strong>{{form.equipo}}</p> 
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+                <h4 text align="center" style= "color: green"><b>Resgitrar Sistemas Operativos </h4>
+            <form action="{% url 'guardar_sistemaoperativo' %}" method="post">
+          
+                {% csrf_token %}
+                 <p ><strong style= "color: #537A51 ">Sistema Operativo:</strong>{{form.sistemaoperativo}}</p> 
+                 <p ><strong style= "color: #537A51 ">Equipo:</strong>
+                 <a href="{% url 'equipo'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.equipo}}</p> 
+                 <input type="submit" value="Guardar" class="btn btn-primary">
+         
+      {% endif %}
+                  
+                
+                
+            </form>
+        </div>
+        </div>
+  
+	
+{% endblock contenido %}

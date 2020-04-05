@@ -1,0 +1,59 @@
+{% extends "baseprotocolo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+             <a href="{% url 'detallelectupslista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+           <h4 text align="center" style= "color: green"><b>Actualizar Detalle de Lectura Ups</h4>
+
+            <form action="{% url 'actualizar_detallelectups' idv %}" method="post">
+                {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Ups:</strong>{{form.ups}}</p> 
+                <p ><strong style= "color: #537A51 ">Protocolo:</strong>{{form.protocolo}}</p>
+                <p ><strong style= "color: #537A51 ">Alarma en Ups:</strong>{{form.alarmaups}}</p> 
+                <p ><strong style= "color: #537A51 ">Bateria de Ups:</strong>{{form.bateriaups}}</p>
+                <p ><strong style= "color: #537A51 ">Carga de Ups:</strong>{{form.cargaups}}</p> 
+                <p ><strong style= "color: #537A51 ">Voltaje de Entrada Ups:</strong>{{form.ventups}}</p>
+                <p ><strong style= "color: #537A51 ">Voltaje de Salida Ups:</strong>{{form.vsalups}}</p>
+                <p ><strong style= "color: #537A51 ">Hertz Ups:</strong>{{form.hertzups}}</p>
+                <p ><strong style= "color: #537A51 ">Czas Ups:</strong>{{form.czasups}}</p> 
+                <p ><strong style= "color: #537A51 ">Horas Ups:</strong>{{form.prhorasups}}</p>
+                <p ><strong style= "color: #537A51 ">Minutos Ups:</strong>{{form.prminutosups}}</p>
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+             <h4 text align="center" style= "color: green"><b>Resgitrar Detalle de Lectura Ups</h4>
+            <form action="{% url 'guardar_detallelectups' %}" method="post">
+      
+                {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Ups:</strong>
+                    <a href="{% url 'ups'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.ups}}</p> 
+                <p ><strong style= "color: #537A51 ">Protocolo:</strong>
+                    <a href="{% url 'protocolo'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.protocolo}}</p>
+                <p ><strong style= "color: #537A51 ">Alarma en Ups:</strong>{{form.alarmaups}}</p> 
+                <p ><strong style= "color: #537A51 ">Bateria de Ups:</strong>{{form.bateriaups}}</p>
+                <p ><strong style= "color: #537A51 ">Carga de Ups:</strong>{{form.cargaups}}</p> 
+                <p ><strong style= "color: #537A51 ">Voltaje de Entrada Ups:</strong>{{form.ventups}}</p>
+                <p ><strong style= "color: #537A51 ">Voltaje de Salida Ups:</strong>{{form.vsalups}}</p>
+                <p ><strong style= "color: #537A51 ">Hertz Ups:</strong>{{form.hertzups}}</p>
+                <p ><strong style= "color: #537A51 ">Czas Ups:</strong>{{form.czasups}}</p> 
+                <p ><strong style= "color: #537A51 ">Horas Ups:</strong>{{form.prhorasups}}</p>
+                <p ><strong style= "color: #537A51 ">Minutos Ups:</strong>{{form.prminutosups}}</p>
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+       
+            {% endif %}
+                
+                
+            </form>
+        </div>
+        </div>
+
+
+  
+	
+{% endblock contenido %}

@@ -1,0 +1,82 @@
+{% extends "baseprotocololista.html" %}
+
+{% block contenido %}
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Alarma Ups, Bateria Ups y Carga Ups" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista Detalle de Lectura Up </h4>
+                    <th>Ups</th>
+                    <th>Protocolo</th>
+                    <th>Alarma Ups</th>
+                    <th>Bateria</th>
+                    <th>Carga</th>
+                    <th>Voltaje Entrada</th>
+                    <th>Voltaje Salida</th>
+                    <th>Hertz</th>
+                    <th>Czas Ups</th>
+                    <th>Horas Ups</th>
+                    <th>Minutos Ups</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if detallelectups.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for detallelectups in detallelectupss %}
+                  <tr {% if detallelectups.id is idv  %}class="info"{% endif %}>
+                    <td>{{ detallelectups.ups }}</td>
+                    <td>{{ detallelectups.protocolo }}</td>
+                    <td>{{ detallelectups.alarmaups }}</td>
+                    <td>{{ detallelectups.bateriaups }}</td>
+                    <td>{{ detallelectups.cargaups }}</td>
+                    <td>{{ detallelectups.ventups }}</td>
+                    <td>{{ detallelectups.vsalups }}</td>
+                    <td>{{ detallelectups.hertzups }}</td>
+                    <td>{{ detallelectups.czasups }}</td>
+                    <td>{{ detallelectups.prhorasups }}</td>
+                    <td>{{ detallelectups.prminutosups }}</td>
+                      
+                      
+                      
+                      
+                       <!--Para eliminar -->
+                      <td>
+
+                        
+
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_detallelectups' detallelectups.id %}" >
+                      <span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_detallelectups' detallelectups.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

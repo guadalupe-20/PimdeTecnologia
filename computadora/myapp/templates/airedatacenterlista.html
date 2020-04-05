@@ -1,0 +1,84 @@
+{% extends "baseprotocololista.html" %}{#aqui hacemos referencia la platilla base donde hacemos a esta plantilla dependiente #}
+
+{% block contenido %}
+{#en este div tenemos la opcuon de busqueda con su repectivo boton de busqueda #}
+  <div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text"  size="50"  placeholder="Buscar por Codigo de Aire y Nombre del aire" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {#aqui hacemos referencia a la tablas del listado de cada uno de los que se han ingresado #}
+
+  <div class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                {#muestra el encabezado como el nombre de cada celda de la tabla #}
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Aire </h4>
+                    <th>Codigo Aire</th>
+                    <th>Nombre Aire</th>
+                    <th>Modelo Aire</th>
+                    <th>Marca Aire</th>
+                    <th>Serie Aire</th>
+                    <th>nombre Condensadora </th>
+                    <th>Modelo Condensadora </th>
+                    <th>Serie Condensadora</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>           
+              {% if airedatacenter.id == idv %}   {#evalua el id de cada dato almacenado #}   
+
+              {% endif %}
+              <tbody>
+                {#aqui hacemos refernecia a cada uno de los atru¿iuto de la tabla y a la vez mostrar todo los datos en una tabla #}
+                  {% for airedatacenter in airedatacenters %}
+                  <tr {% if airedatacenter.id is idv  %}class="info"{% endif %}>
+                    <td>{{ airedatacenter.codaire }}</td>
+                    <td>{{ airedatacenter.nombreaire }}</td>
+                    <td>{{ airedatacenter.modeloaire }}</td>
+                    <td>{{ airedatacenter.marcaaire }}</td>
+                    <td>{{ airedatacenter.serieaire }}</td>
+                    <td>{{ airedatacenter.nombrecondensadoraaire }}</td>
+                    <td>{{ airedatacenter.modelocondensadoraaire }}</td>
+                    <td>{{ airedatacenter.seriecondensadoraaire }}</td>                    
+                       <!--Para eliminar -->
+                      <td>
+
+                      <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_airedatacenter' airedatacenter.id %}" > <span class="glyphicon glyphicon-remove"></span></a>
+                         <!--Para editar -->
+                       <a href="{% url 'editar_airedatacenter' airedatacenter.id %}"> <span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+  
+	
+{% endblock contenido %}
+
+
+
+
+
+
+
+                        
+
+                    
+                 

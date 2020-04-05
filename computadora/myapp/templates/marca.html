@@ -1,0 +1,37 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+            <a href="{% url 'marcalista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+
+ 
+            {% if idv %}
+                    <h4 text align="center" style= "color: green"><b>Actualizar Marca de Equipos</h4>
+            <form action="{% url 'actualizar_marca' idv %}" method="post">
+              {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Marca del Equipo:</strong>{{form.marca}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+            <h4 text align="center" style= "color: green"><b>Resgitrar Marca de Equipos</h4>
+            <form action="{% url 'guardar_marca' %}" method="post">
+                       {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Marca del Equipo:</strong>{{form.marca}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+              
+                       {% endif %}
+
+                
+                
+            </form>
+        </div>
+        </div>
+
+   
+  
+	
+{% endblock contenido %}

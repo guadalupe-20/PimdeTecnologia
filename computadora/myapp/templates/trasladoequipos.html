@@ -1,0 +1,76 @@
+{% extends "reportetotal.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+
+
+         <h4 text align="center" style= "color: green"><b>Reporte Traslados de Equipos</h4>
+            <div align="center" >
+                <form action="{% url 'reportetraslado' %}" method="get"  >
+                <input   type="text" class="form-control" name="campo"  placeholder="Traslado para generar reporte ingrese el codigo de inventario " required>
+                <button type="submit"  class=" btn-block"><img src="https://www.invu.go.cr/image/journal/article?img_id=61904&t=1534623866593" alt="" width="30" height="30"></button>
+                </form>
+            </div>
+            <hr>
+        <h4 text align="center" style= "color: green"><b>Reporte Diagnosticos de Equipos</h4>
+            <div align="center" >
+                <form action="{% url 'reportediagnostico' %}" method="get"  >
+                <input   type="text" class="form-control" name="campo"  placeholder="Diagnostico para generar reporte ingrese el codigo de inventario " required>
+                <button type="submit"  class=" btn-block"><img src="https://www.invu.go.cr/image/journal/article?img_id=61904&t=1534623866593" alt="" width="30" height="30"></button>
+                </form>
+            </div>
+        <hr>
+        <table class="tg">
+  <tr>
+    <th class="tg-0pky">
+        <h4 text align="center" style= "color: green"><b>Reporte Mantenimiento Preventivo</h4>
+        <div >
+            <div align="center">
+                <a href="{% url 'reporte' %}" ><img src="https://www.invu.go.cr/image/journal/article?img_id=61904&t=1534623866593" alt="" width="60" height="60" ><h6>Reporte Mantenimiento </h6></a>
+            </div>
+        </div>
+    </th>
+    <th class="tg-0pky">
+        <h4 text align="center" style= "color: green"><b>Manual de Usuariio</h4>
+        <div >
+            <div align="center">
+                <a href="https://drive.google.com/open?id=1qHDvytpIKD5F5dNKkrXtWQY5TYorXAlZ" style="font-size: 30px"><span class="glyphicon glyphicon-open-file"><h6>USuario</h6><a>
+            </div>
+        </div>
+    </th>
+    <th class="tg-0pky">
+         <h4 text align="center" style= "color: green"><b>Manual Tecnico</h4>
+        <div >
+            <div align="center">
+                <a href="https://drive.google.com/open?id=1GyjLeycy38KV9hTY5zqOulIcWC4RXROM"   style="font-size: 30px"><span class="glyphicon glyphicon-open-file"><h6>Tecnico</h6></a>
+            </div>
+        </div>
+    </th>
+    
+  </tr>
+
+        
+
+
+            <h4 text align="center" style= "color: green"><b>Reporte Protocolo Verficacion Diario del Data Center </h4>
+            <div align="center" >
+                <form action="{% url 'reporteprotocolo' %}" method="get"  >
+                <input   type="text" class="form-control" name="campo"  placeholder="Protocolo para generar reporte ingrese la fecha en que se realizo... " required>
+                <button type="submit"  class=" btn-block"><img src="https://www.invu.go.cr/image/journal/article?img_id=61904&t=1534623866593" alt="" width="30" height="30"></button>
+                </form>
+            </div>
+<hr>
+            
+        </div>
+        </div>
+
+
+
+	
+{% endblock contenido %}
+
+
+

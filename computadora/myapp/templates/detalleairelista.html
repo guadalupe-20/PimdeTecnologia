@@ -1,0 +1,72 @@
+{% extends "baseprotocololista.html" %}
+
+{% block contenido %}
+
+
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50" placeholder="Buscar por Alarma aire y Aire encendido" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+         <div class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista Detalle Aire </h4>
+                    <th>Aire</th>
+                    <th>Protocolo</th>
+                    <th>Alarma Aire</th>
+                    <th>Aire Encendido</th>
+                    <th>Hora Aire</th>
+                    <th>Temperatura Aire</th>
+                    <th>Humedad Aire</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+            
+              {% if detalleaire.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for detalleaire in detalleaires %}
+                  <tr {% if detalleats.id is idv  %}class="info"{% endif %}>
+                    <td>{{ detalleaire.aire }}</td>
+                    <td>{{ detalleaire.protocolo }}</td>
+                    <td>{{ detalleaire.alarmaaire }}</td>
+                    <td>{{ detalleaire.aireencendido }}</td>
+                    <td>{{ detalleaire.horaaire }}</td>
+                     <td>{{ detalleaire.temperaturaaire }}</td>
+                    <td>{{ detalleaire.humedadaire }}</td>
+                  
+                      
+                       <!--Para eliminar -->
+                      <td>
+
+                        
+
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_detalleaire' detalleaire.id %}" >
+                        <span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_detalleaire' detalleaire.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

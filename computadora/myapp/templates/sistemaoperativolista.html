@@ -1,0 +1,58 @@
+{% extends "baseequipolista.html" %}
+
+{% block contenido %}
+
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Sistema Operativo" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  <div  class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Sistemas Operativos  </h4>
+                    <th>Sistemas Operativos </th>
+                    <th>Equipo</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if sistemaoperativo.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for sistemaoperativo in sistemaoperativos %}
+                  <tr {% if sistemaoperativo.id is idv  %}class="info"{% endif %}>
+                    <td>{{ sistemaoperativo.sistemaoperativo }}</td>
+                    <td>{{ sistemaoperativo.equipo }}</td>
+                      
+                       <!--Para eliminar -->
+                      <td>
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_sistemaoperativo' sistemaoperativo.id %}" ><span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_sistemaoperativo' sistemaoperativo.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

@@ -1,0 +1,71 @@
+{% extends "baseprotocolo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+  <a href="{% url 'protocololista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                    <h4 text align="center" style= "color: green"><b>Actualizar Protocolo</h4>
+            <form action="{% url 'actualizar_protocolo' idv %}" method="post">
+                {% csrf_token %}
+                    <p ><strong style= "color: #537A51 ">Fecha del Protocolo:</strong>{{form.fechaprotocolo}}</p> 
+               <p ><strong style= "color: #537A51 ">Historial de Eventos :</strong>{{form.historialeventos}}</p> 
+               <p ><strong style= "color: #537A51 ">Temperatura Data:</strong>{{form.temperaturadata}}</p> 
+               <p ><strong style= "color: #537A51 ">Humedad Data:</strong>{{form.humedaddata}}</p> 
+               <p ><strong style= "color: #537A51 ">Revicion de Equipo:</strong>{{form.revisionequipos}}</p> 
+               <p ><strong style= "color: #537A51 ">Observaciones:</strong>{{form.observaciones}}</p> 
+               <p ><strong style= "color: #537A51 ">Panel Regulado :</strong>{{form.panelregulado}}</p> 
+               <p ><strong style= "color: #537A51 ">Panel NO Regulado:</strong>{{form.panelnoregulado}}</p> 
+               <p ><strong style= "color: #537A51 ">Ventosas del Piso en Posicion Correcta:</strong>{{form.ventosasenposicion}}</p> 
+               <p ><strong style= "color: #537A51 ">Boquilla Area:</strong>{{form.boquillaaerea}}</p> 
+               <p ><strong style= "color: #537A51 ">Boquilla Bajo Piso:</strong>{{form.boquillabajopiso}}</p> 
+               <p ><strong style= "color: #537A51 ">Luces Del Data en Buen Estado:</strong>{{form.lucesprincipalesbuenestado}}</p> 
+               <p ><strong style= "color: #537A51 ">Camara Enviando Fotos:</strong>{{form.camarafuncionando}}</p>
+               <p ><strong style= "color: #537A51 ">Supresos de Trascientes OA verde:</strong>{{form.oaverde}}</p> 
+               <p ><strong style= "color: #537A51 ">Supresos de Trascientes OC verde:</strong>{{form.ocverde}}</p>
+               <p ><strong style= "color: #537A51 ">Hora:</strong>{{form.hora}}</p> 
+               <p ><strong style= "color: #537A51 ">Luz Salida Encendida:</strong>{{form.lucessalida}}</p>
+               <p ><strong style= "color: #537A51 ">Usuario:</strong>{{form.usuario}}</p> 
+           
+                <input type="submit" value="Guardar" class="btn btn-primary">
+
+            {% else %}
+            <h4 text align="center" style= "color: green"><b>Resgitrar Protocolo</h4>
+            <form action="{% url 'guardar_protocolo' %}" method="post">
+          
+                {% csrf_token %}
+
+               <p ><strong style= "color: #537A51 ">Fecha del Protocolo:</strong>{{form.fechaprotocolo}}</p> 
+               <p ><strong style= "color: #537A51 ">Historial de Eventos :</strong>{{form.historialeventos}}</p> 
+               <p ><strong style= "color: #537A51 ">Temperatura Data:</strong>{{form.temperaturadata}}</p> 
+               <p ><strong style= "color: #537A51 ">Humedad Data:</strong>{{form.humedaddata}}</p> 
+               <p ><strong style= "color: #537A51 ">Revicion de Equipo:</strong>{{form.revisionequipos}}</p> 
+               <p ><strong style= "color: #537A51 ">Observaciones:</strong>{{form.observaciones}}</p> 
+               <p ><strong style= "color: #537A51 ">Panel Regulado :</strong>{{form.panelregulado}}</p> 
+               <p ><strong style= "color: #537A51 ">Panel NO Regulado:</strong>{{form.panelnoregulado}}</p> 
+               <p ><strong style= "color: #537A51 ">Ventosas del Piso en Posicion Correcta:</strong>{{form.ventosasenposicion}}</p> 
+               <p ><strong style= "color: #537A51 ">Boquilla Area:</strong>{{form.boquillaaerea}}</p> 
+               <p ><strong style= "color: #537A51 ">Boquilla Bajo Piso:</strong>{{form.boquillabajopiso}}</p> 
+               <p ><strong style= "color: #537A51 ">Luces Del Data en Buen Estado:</strong>{{form.lucesprincipalesbuenestado}}</p> 
+               <p ><strong style= "color: #537A51 ">Camara Enviando Fotos:</strong>{{form.camarafuncionando}}</p>
+               <p ><strong style= "color: #537A51 ">Supresos de Trascientes OA verde:</strong>{{form.oaverde}}</p> 
+               <p ><strong style= "color: #537A51 ">Supresos de Trascientes OC verde:</strong>{{form.ocverde}}</p>
+               <p ><strong style= "color: #537A51 ">Hora:</strong>{{form.hora}}</p> 
+               <p ><strong style= "color: #537A51 ">Luz Salida Encendida:</strong>{{form.lucessalida}}</p>
+               <p ><strong style= "color: #537A51 ">Usuario:</strong>
+                <a href="{% url 'usuario'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.usuario}}</p> 
+           
+                <input type="submit" value="Guardar" class="btn btn-primary">
+
+                 {% endif %}
+                
+                
+            </form>
+        </div>
+        </div>
+
+  
+	
+{% endblock contenido %}

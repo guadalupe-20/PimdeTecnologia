@@ -1,0 +1,44 @@
+{% extends "baseequipolista.html" %}
+
+{% block contenido %}
+
+  <div class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Auditorias </h4>
+                    <th>Descripción </th>
+                    <th>Fecha</th>
+                     <th>Usuario</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if auditoria.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for auditoria in auditorias %}
+                  <tr {% if auditoria.id is idv  %}class="info"{% endif %}>
+                    <td>{{ auditoria.descripcion }}</td>
+                    <td>{{ auditoria.fecha }}</td>
+                    <td>{{ auditoria.usuario }}</td>
+
+                      
+                       <!--Para eliminar -->
+                      <td>
+
+                        
+
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_auditoria' auditoria.id %}" ><span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_auditoria' auditoria.id %}" ><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

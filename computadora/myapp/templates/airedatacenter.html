@@ -1,0 +1,59 @@
+{% extends "baseprotocolo.html" %}{#aqui hacemos referencia la platilla base donde hacemos a esta plantilla dependiente #}
+
+{% block contenido %}{#block que nos muestra el cuerpo de la plantilla #}
+
+{#div que contiene a toda la informacion de esta plantilla #}
+ <div div class="container" >
+      
+      {#div que contiene a toda la informacion del formulario #}
+        <div  class="col-md-6 col-md-offset-3">
+        <a href="{% url 'airedatacenterlista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {#div que contiene a toda la informacion para poder actualizar un registo #}
+            {% if idv %}
+             <h4 text align="center" style= "color: green"><b>Actualizar Aire</h4>
+            <form action="{% url 'actualizar_airedatacenter' idv %}" method="post">
+              {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Codígo del Aire:</strong>{{form.codaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre del Aire:</strong>{{form.nombreaire}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo del Aire:</strong>{{form.modeloaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Marca del Aire:</strong>{{form.marcaaire}}</p>
+                <p ><strong style= "color: #537A51 ">Serie del Aire:</strong>{{form.serieaire}}</p>
+                <p ><strong style= "color: #537A51 ">Nombre Condensadora del Aire:</strong>{{form.nombrecondensadoraaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Modelo Condensadora del Aire:</strong>{{form.modelocondensadoraaire}}</p>
+                <p ><strong style= "color: #537A51 ">Serie Condensadora del Aire:</strong>{{form.seriecondensadoraaire}}</p>  
+                <input type="submit" value="Guardar" class="btn btn-primary">
+              
+            {% else %}
+              {#contiene a toda la informacion para poder ingresar un nuevo registo #}
+             <h4 text align="center" style= "color: green"><b>Registrar Aire</h4>
+            <form action="{% url 'guardar_airedatacenter' %}" method="post">
+            {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Codígo del Aire:</strong>{{form.codaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre del Aire:</strong>{{form.nombreaire}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo del Aire:</strong>{{form.modeloaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Marca del Aire:</strong>{{form.marcaaire}}</p>
+                <p ><strong style= "color: #537A51 ">Serie del Aire:</strong>{{form.serieaire}}</p>
+                <p ><strong style= "color: #537A51 ">Nombre Condensadora del Aire:</strong>{{form.nombrecondensadoraaire}}</p> 
+                <p ><strong style= "color: #537A51 ">Modelo Condensadora del Aire:</strong>{{form.modelocondensadoraaire}}</p>
+                <p ><strong style= "color: #537A51 ">Serie Condensadora del Aire:</strong>{{form.seriecondensadoraaire}}</p>  
+                  {#boton para guardar dicha infoamcion  #}
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            
+           
+            {% endif %}
+       
+                
+                
+            </form>
+          </form>
+        </div>
+        </div>
+
+
+
+	
+{% endblock contenido %}
+
+
+

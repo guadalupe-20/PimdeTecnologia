@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PIM v1.0</title>
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css">
+
+</head>
+<body>
+  <p>    
+    <div class="container" >
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQHiX0b6_vzeU2C3PUeaOUdI9mHzQ5fCcl9-MoF8iOpD7AdYbtb" width="60" height="60" alt="">
+
+      <table class="egt" align="right">
+       <tr>
+        <td><h5   style= "color: blue"><b>{{ user.get_full_name }}---</b> </h5></td>
+        <td><a href="{% url 'salir' %}" style="color:green;"><span class="glyphicon glyphicon-log-in"></a></td>
+        </tr>
+      </table>
+    </div>
+  </p>
+  <hr>
+
+  <p>
+    
+    <font color="#27AE60"   face="arial,verdana">
+    <h1  align="center"><b>PIM de Tecnologia </b></h1>
+    </font>
+    <font color="blue"   face="arial,verdana">
+    <h4  align="center"><b>Cooperativa de Ahorro y Credito La Guadalupe LTDA.</b></h4>
+    </font>
+  </p>
+  <hr >
+
+  <nav class="navbar navbar-dark bg-primary ">
+    <div class="navbar-header " id="navigation")>
+      <ul class="nav nav-pills" id="myTab" role="tablist" >
+
+
+
+        <li class="nav-item ">
+          <a class="nav-link " id="Inicio-tab" data-toggle="tab"  role="tab" aria-controls="Inicio" aria-selected="true" href="{% url 'mantenimientolista' %} "style="color:white;"><b><h6> LISTA MANTENIMIENTO</h6></b></a>
+
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link " id="Inicio-tab" data-toggle="tab"  role="tab" aria-controls="Inicio" aria-selected="true" href="{% url 'menu' %} "style="color:white;"><b><h6>MENÚ</h6></b></a>
+        </li>
+        
+        
+      
+      </ul>
+    </div>
+  </nav>
+        <hr>
+        
+
+{% block contenido %}
+  
+{% endblock contenido %}
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+      <a href="{% url 'modelolista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                <h4 text align="center" style= "color: green"><b>actualizar Modelos de Equipos</h4>
+            <form action="{% url 'actualizar_modelo' idv %}" method="post">
+
+                <p ><strong style= "color: #537A51 ">Modelo del Equipo:</strong>{{form.modelo}}</p> 
+               <p ><strong style= "color: #537A51 ">Marca del Equipo:</strong>{{form.marca}}</p> 
+        
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+         <h4 text align="center" style= "color: green"><b>Resgitrar Modelos de Equipos</h4>
+
+            <form action="{% url 'guardar_modelo' %}" method="post">
+
+                {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Modelo del Equipo:</strong>{{form.modelo}}</p> 
+               <p ><strong style= "color: #537A51 ">Marca del Equipo:</strong>
+                <a href="{% url 'modelo'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.marca}}</p> 
+        
+                <input type="submit" value="Guardar" class="btn btn-primary">
+
+                          {% endif %}
+                  
+                
+                
+            </form>
+        </div>
+        </div>
+
+   
+  
+	
+{% endblock contenido %}

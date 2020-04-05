@@ -1,0 +1,62 @@
+{% extends "baseprotocololista.html" %}
+
+{% block contenido %}
+
+<div class="container"align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Codigo Ups y Nombre Ups" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Ups </h4>
+                    <th>Codigo Ups</th>
+                    <th>Nombre Ups</th>
+                    <th>Modelo ups</th>
+                    <th>Marca ups</th>
+                    <th>Serie ups</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if ups.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for ups in upss %}
+                  <tr {% if ups.id is idv  %}class="info"{% endif %}>
+                    <td>{{ ups.codups }}</td>
+                    <td>{{ ups.nombreups }}</td>
+                    <td>{{ ups.modeloups }}</td>
+                    <td>{{ ups.marcaups }}</td>
+                    <td>{{ ups.serieups }}</td>
+                  
+                       <!--Para eliminar -->
+                      <td>
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_ups' ups.id %}" >
+                       <span class="glyphicon glyphicon-remove"></span></a>
+                        <a href="{% url 'editar_ups' ups.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

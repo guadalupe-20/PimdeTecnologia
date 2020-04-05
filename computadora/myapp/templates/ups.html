@@ -1,0 +1,39 @@
+{% extends "baseprotocolo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+ <a href="{% url 'upslista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                     <h4 text align="center" style= "color: green"><b>Actualizar Ups</h4>
+            <form action="{% url 'actualizar_ups' idv %}" method="post">
+              {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Codgio del Ups:</strong>{{form.codups}}</p> 
+               <p ><strong style= "color: #537A51 ">Nombre del Ups:</strong>{{form.nombreups}}</p> 
+               <p ><strong style= "color: #537A51 ">Modelo del Ups:</strong>{{form.modeloups}}</p> 
+               <p ><strong style= "color: #537A51 ">Marca del Ups:</strong>{{form.marcaups}}</p>
+               <p ><strong style= "color: #537A51 ">Serie del Ups:</strong>{{form.serieups}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+            <h4 text align="center" style= "color: green"><b>Resgitrar Ups</h4>
+            <form action="{% url 'guardar_ups' %}" method="post">
+              {% csrf_token %}
+               <p ><strong style= "color: #537A51 ">Codgio del Ups:</strong>{{form.codups}}</p> 
+               <p ><strong style= "color: #537A51 ">Nombre del Ups:</strong>{{form.nombreups}}</p> 
+               <p ><strong style= "color: #537A51 ">Modelo del Ups:</strong>{{form.modeloups}}</p> 
+               <p ><strong style= "color: #537A51 ">Marca del Ups:</strong>{{form.marcaups}}</p>
+               <p ><strong style= "color: #537A51 ">Serie del Ups:</strong>{{form.serieups}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+               
+            {% endif %}
+                
+            </form>
+        </div>
+        </div>
+
+
+  
+	
+{% endblock contenido %}

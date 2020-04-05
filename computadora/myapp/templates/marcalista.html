@@ -1,0 +1,60 @@
+{% extends "baseequipolista.html" %}
+
+{% block contenido %}
+
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Marca " name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+   <div class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Marcas de Equipos</h4>
+                    <th>Marca</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if marca.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for marca in marcas %}
+                  <tr {% if marca.id is idv  %}class="info"{% endif %}>
+                    <td>{{ marca.marca }}</td>
+                      
+                       <!--Para eliminar -->
+                      <td>
+
+                        
+
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_marca' marca.id %}" >
+                      <span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_marca' marca.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

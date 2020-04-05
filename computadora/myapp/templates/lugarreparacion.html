@@ -1,0 +1,33 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+           <a href="{% url 'lugarreparacionlista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                     <h4 text align="center" style= "color: green"><b>Actualizar Lugares de Reparacion de Equipos</h4>
+
+            <form action="{% url 'actualizar_lugarreparacion' idv %}" method="post">
+              {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Lugar de Reparación del Equipo:</strong>{{form.lugarreparacion}}</p> 
+               <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+            <h4 text align="center" style= "color: green"><b>Resgitrar Lugares de Reparacion de Equipos</h4>
+        <form action="{% url 'guardar_lugarreparacion' %}" method="post">
+                {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Lugar de Reparación del Equipo:</strong>{{form.lugarreparacion}}</p> 
+               <input type="submit" value="Guardar" class="btn btn-primary">
+      
+               
+        {% endif %}
+                
+            </form>
+        </div>
+        </div>
+
+  
+  
+	
+{% endblock contenido %}

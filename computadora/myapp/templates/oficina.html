@@ -1,0 +1,38 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+
+
+ <div div class="container" >
+
+      
+        <div  class="col-md-6 col-md-offset-3">
+         <a href="{% url 'oficinalista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+               {% if idv %}
+                     <h4 text align="center" style= "color: green"><b>Actualizar Oficinas</h4>
+
+            <form action="{% url 'actualizar_oficina' idv %}" method="post">
+              {% csrf_token %}
+              <p ><strong style= "color: #537A51 ">Codígo de Oficina:</strong>{{form.codoficina}}</p> 
+              <p ><strong style= "color: #537A51 ">Nombre de Oficina:</strong>{{form.oficina}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+             <h4 text align="center" style= "color: green"><b>Resgitrar Oficinas</h4>
+            <form action="{% url 'guardar_oficina' %}" method="post">
+     
+                {% csrf_token %}
+                <p ><strong style= "color: #537A51 ">Codígo de Oficina:</strong>{{form.codoficina}}</p> 
+              <p ><strong style= "color: #537A51 ">Nombre de Oficina:</strong>{{form.oficina}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+              {% endif %}
+            </form>
+        </div>
+        </div>
+
+          </table>          
+      </div>
+
+
+	
+{% endblock contenido %}

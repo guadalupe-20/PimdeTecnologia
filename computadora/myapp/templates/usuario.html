@@ -1,0 +1,40 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+        <div  class="col-md-6 col-md-offset-3">
+           <a href="{% url 'usuariolista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                    <h4 text align="center" style= "color: green"><b>Actualizar Usuarios</h4>
+            <form action="{% url 'actualizar_usuario' idv %}" method="post">
+                 {% csrf_token %}
+                    <p ><strong style= "color: #537A51 ">Codigo Usuario:</strong>{{form.codusuario}}</p> 
+               <p ><strong style= "color: #537A51 ">Nombre de Usuario:</strong>{{form.nombreusuario}}</p> 
+               <p ><strong style= "color: #537A51 ">Contraseña:</strong>{{form.contrasena}}</p> 
+               <p ><strong style= "color: #537A51 ">Correo del Usurio:</strong>{{form.correo}}</p>
+               <p ><strong style= "color: #537A51 ">Nombre del Usuario:</strong>{{form.nombre}}</p>
+                <p ><strong style= "color: #537A51 ">Apellido del Usuario:</strong>{{form.apellido}}</p>
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}       
+             <h4 text align="center" style= "color: green"><b>Resgitrar Usuarios</h4>
+            <form action="{% url 'guardar_usuario' %}" method="post">
+                <p ><strong style= "color: #537A51 ">Codigo Usuario:</strong>{{form.codusuario}}</p> 
+               <p ><strong style= "color: #537A51 ">Nombre de Usuario:</strong>{{form.nombreusuario}}</p> 
+               <p ><strong style= "color: #537A51 ">Contraseña:</strong>{{form.contrasena}}</p> 
+               <p ><strong style= "color: #537A51 ">Correo del Usurio:</strong>{{form.correo}}</p>
+               <p ><strong style= "color: #537A51 ">Nombre del Usuario:</strong>{{form.nombre}}</p>
+                <p ><strong style= "color: #537A51 ">Apellido del Usuario:</strong>{{form.apellido}}</p>
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+                             {% endif %}
+                
+                
+            </form>
+        </div>
+        </div>
+
+  
+	
+{% endblock contenido %}

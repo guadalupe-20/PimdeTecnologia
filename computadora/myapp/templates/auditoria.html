@@ -1,0 +1,29 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+         <h4 text align="center" style= "color: green"><b>Resgitrar Auditoria</h4>
+            {% if idv %}
+            <form action="{% url 'actualizar_auditoria' idv %}" method="post">
+            {% else %}
+            <form action="{% url 'guardar_auditoria' %}" method="post">
+            {% endif %}
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+                   <a  class="btn btn-primary" href="{% url 'auditorialista' %}">Lista Auditoria</a>
+                
+                  
+                
+                
+            </form>
+        </div>
+        </div>
+
+
+{% endblock contenido %}

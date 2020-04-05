@@ -1,0 +1,41 @@
+{% extends "baseprotocolo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+        <a href="{% url 'atslista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+              <h4 text align="center" style= "color: green"><b>Actualizar Ats</h4>
+            <form action="{% url 'actualizar_ats' idv %}" method="post">
+              {% csrf_token %}
+                  <p ><strong style= "color: #537A51 ">Codígo Ats:</strong>{{form.codats}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre Ats:</strong>{{form.nombreats}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo Ats:</strong>{{form.modeloats}}</p> 
+                <p ><strong style= "color: #537A51 ">Marca Ats:</strong>{{form.marcaats}}</p>
+                <p ><strong style= "color: #537A51 ">Serie Ats:</strong>{{form.serieats}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+
+            {% else %}
+            <form action="{% url 'guardar_ats' %}" method="post">
+                <h4 text align="center" style= "color: green"><b>Resgitrar Ats</h4>
+        
+                {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Codígo Ats:</strong>{{form.codats}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre Ats:</strong>{{form.nombreats}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo Ats:</strong>{{form.modeloats}}</p> 
+                <p ><strong style= "color: #537A51 ">Marca Ats:</strong>{{form.marcaats}}</p>
+                <p ><strong style= "color: #537A51 ">Serie Ats:</strong>{{form.serieats}}</p> 
+                <input type="submit" value="Guardar" class="btn btn-primary">
+               
+               
+                    {% endif %}
+                
+            </form>
+        </div>
+        </div>
+
+ 
+{% endblock contenido %}

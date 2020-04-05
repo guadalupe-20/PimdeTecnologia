@@ -1,0 +1,68 @@
+{% extends "baseequipo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+             <a href="{% url 'equipolista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+                     <h4 text align="center" style= "color: green"><b>Actualizar Equipo</h4>
+
+            <form action="{% url 'actualizar_equipo' idv %}" method="post">
+                {% csrf_token %}
+                     <p ><strong style= "color: #537A51 ">Codígo Equipo:</strong>{{form.codequipo}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre Equipo:</strong>{{form.nombreequipo}}</p> 
+                <p ><strong style= "color: #537A51 ">Fecha Compra:</strong>{{form.fechacompra}}</p>
+                <p ><strong style= "color: #537A51 ">Descripción:</strong>{{form.descripcion}}</p> 
+                <p ><strong style= "color: #537A51 ">Observación:</strong>{{form.observacion}}</p>
+                <p ><strong style= "color: #537A51 ">Diagnosticada:</strong>{{form.diagnosticada}}</p> 
+                <p ><strong style= "color: #537A51 ">Disco Duro:</strong>{{form.discoduro}}</p>
+                <p ><strong style= "color: #537A51 ">ServiceTag:</strong>{{form.servicetag}}</p>
+                <p ><strong style= "color: #537A51 ">Dirección IP:</strong>{{form.direccionip}}</p>
+                <p ><strong style= "color: #537A51 ">Usuario:</strong>{{form.usuario}}</p> 
+                <p ><strong style= "color: #537A51 ">Oficina:</strong>{{form.oficina}}</p> 
+                <p ><strong style= "color: #537A51 ">Lugar de Reparacion:</strong>{{form.lugarreparacion}}</p>
+                <p ><strong style= "color: #537A51 ">Estado:</strong>{{form.estado}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo:</strong>{{form.modelo}}</p>
+
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+                     <h4 text align="center" style= "color: green"><b>Resgitrar Equipo</h4>
+            <form action="{% url 'guardar_equipo' %}" method="post">
+   
+                {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Codígo Equipo:</strong>{{form.codequipo}}</p> 
+                <p ><strong style= "color: #537A51 ">Nombre Equipo:</strong>{{form.nombreequipo}}</p> 
+                <p ><strong style= "color: #537A51 ">Fecha Compra:</strong>{{form.fechacompra}}</p>
+                <p ><strong style= "color: #537A51 ">Descripción:</strong>{{form.descripcion}}</p> 
+                <p ><strong style= "color: #537A51 ">Observación:</strong>{{form.observacion}}</p>
+                <p ><strong style= "color: #537A51 ">Diagnosticada:</strong>{{form.diagnosticada}}</p> 
+                <p ><strong style= "color: #537A51 ">Disco Duro:</strong>{{form.discoduro}}</p>
+                <p ><strong style= "color: #537A51 ">ServiceTag:</strong>{{form.servicetag}}</p>
+                <p ><strong style= "color: #537A51 ">Dirección IP:</strong>{{form.direccionip}}</p>
+                <p ><strong style= "color: #537A51 ">Usuario:</strong>
+                    <a href="{% url 'usuario'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.usuario}}</p> 
+                <p ><strong style= "color: #537A51 ">Oficina:</strong>
+                    <a href="{% url 'oficina'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.oficina}}</p> 
+                <p ><strong style= "color: #537A51 ">Lugar de Reparacion:</strong>
+                    <a href="{% url 'lugarreparacion'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.lugarreparacion}}</p>
+                <p ><strong style= "color: #537A51 ">Estado:</strong>
+                    <a href="{% url 'estado'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.estado}}</p>
+                <p ><strong style= "color: #537A51 ">Modelo:</strong>
+                    <a href="{% url 'modelo' %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.modelo}}</p>
+
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+               
+             {% endif %}
+
+            </form>
+        </div>
+        </div>
+
+
+	
+{% endblock contenido %}

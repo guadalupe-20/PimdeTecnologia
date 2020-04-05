@@ -1,0 +1,91 @@
+{% extends "baseequipolista.html" %}
+
+{% block contenido %}
+
+
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Codigo Equipo, Fecha Compra, ServiceTAG y DirecciónIP" name="buscar">   
+                 <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>           
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div class="col-md-12 " class="bg-info clearfix" >
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+
+
+
+                    <h4 text align="center" style= "color: green"><b>Lista de Equipos  </h4>
+                    <th>Codigo Equipo </th>
+                    <th>Nombre Equipo </th>
+                    <th>Fecha Compra</th>
+                    <th>Descripcion</th>
+                    <th>Observación </th>
+                    <th>Diagnosticada</th>
+                    <th>Disco Duro</th>
+                    <th>ServiceTAG</th>
+                    <th>DirecciónIP</th>
+                    <th>Usuario</th>
+                    <th>Oficina</th>
+                    <th>Lugar Reparación </th>
+                    <th>Estado</th>
+                    <th>Modelo</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+
+
+                
+              {% if equipo.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for equipo in equipos %}
+                  <tr {% if equipo.id is idv  %}class="info"{% endif %}>
+                    <td>{{ equipo.codequipo }}</td>
+                    <td>{{ equipo.nombreequipo }}</td>
+                    <td>{{ equipo.fechacompra }}</td>
+                    <td>{{ equipo.descripcion }}</td>
+                    <td>{{ equipo.observacion }}</td>
+                    <td>{{ equipo.diagnosticada }}</td>
+                    <td>{{ equipo.discoduro }}</td>
+                    <td>{{ equipo.servicetag }}</td>
+                    <td>{{ equipo.direccionip }}</td>
+                    <td>{{ equipo.usuario }}</td>
+                    <td>{{ equipo.oficina }}</td>
+                    <td>{{ equipo.lugarreparacion }}</td>
+                    <td>{{ equipo.estado }}</td>
+                    <td>{{ equipo.modelo }}</td>
+
+
+                      
+                       <!--Para eliminar -->
+                      <td>
+
+                        
+
+                        <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_equipo' equipo.id %}" >
+                         <span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_equipo' equipo.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

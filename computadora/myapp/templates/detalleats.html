@@ -1,0 +1,46 @@
+{% extends "baseprotocolo.html" %}
+
+{% block contenido %}
+
+ <div div class="container" >
+      
+        <div  class="col-md-6 col-md-offset-3">
+       <a href="{% url 'detalleatslista'  %}" ><span  class="glyphicon glyphicon-list"></a>
+            {% if idv %}
+               <h4 text align="center" style= "color: green"><b>Actualizar Detalle Ats</h4>
+            <form action="{% url 'actualizar_detalleats' idv %}" method="post">
+                  {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Ats:</strong>{{form.ats}}</p> 
+                <p ><strong style= "color: #537A51 ">Protocolo:</strong>{{form.protocolo}}</p>
+                <p ><strong style= "color: #537A51 ">Luces A y B Encendidas:</strong>{{form.lucesencendidasayb}}</p> 
+                <p ><strong style= "color: #537A51 ">Preferencia:</strong>{{form.preferencia}}</p>
+                <p ><strong style= "color: #537A51 ">Amperios:</strong>{{form.amps}}</p> 
+        
+
+                <input type="submit" value="Guardar" class="btn btn-primary">
+            {% else %}
+             <h4 text align="center" style= "color: green"><b>Resgitrar Detalle Ats</h4>
+            <form action="{% url 'guardar_detalleats' %}" method="post">
+                       {% csrf_token %}
+
+                <p ><strong style= "color: #537A51 ">Ats:</strong>
+                    <a href="{% url 'ats'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.ats}}</p> 
+                <p ><strong style= "color: #537A51 ">Protocolo:</strong>
+                    <a href="{% url 'protocolo'  %}" style="font-size: 18px" ><span  class="glyphicon glyphicon-plus-sign"></a>{{form.protocolo}}</p>
+                <p ><strong style= "color: #537A51 ">Luces A y B Encendidas:</strong>{{form.lucesencendidasayb}}</p> 
+                <p ><strong style= "color: #537A51 ">Preferencia:</strong>{{form.preferencia}}</p>
+                <p ><strong style= "color: #537A51 ">Amperios:</strong>{{form.amps}}</p> 
+        
+
+                <input type="submit" value="Guardar" class="btn btn-primary">   
+            {% endif %}
+                
+                
+            </form>
+        </div>
+        </div>
+
+
+	
+{% endblock contenido %}

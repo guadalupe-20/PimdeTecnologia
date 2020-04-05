@@ -1,0 +1,87 @@
+{% extends "baseprotocololista.html" %}
+
+{% block contenido %}
+<div class="container" align="right">
+      <div class="rows">
+        <div class="col-md-12 search">
+          <form method="get" class="busca">
+            <div id="custom-search-input">
+              <div class="col-md-12 input-group">
+                <input type="text" size="50"  placeholder="Buscar por Fecha Protocolo,Historial de Ecventos y Observaciones" name="buscar">
+
+                <span class="input-group-list">
+                  <button type="submit" class="boton btn-success">BUSCAR</button>
+                </span>
+                
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+ 
+  <div  class="col-md-12 " class="container" class="bg-info clearfix">
+          <table  class="table table-hover  table-bordered" >
+              <thead>
+                  <tr style="background-color:#EEF4FC   ">
+                    <h4 text align="center" style= "color: green"><b>Lista de Protocolo</h4>
+                    <th>Fecha Protocolo</th>
+                    <th>Historial <br>de Eventos</th>
+                    <th>Temperatura</th>
+                    <th>Humedad</th>
+                    <th>Revisión de Equipos</th>
+                    <th>Observaciones </th>
+                    <th>Panel <br> Regulado </th>
+                    <th>Panel <br> NO Regulado </th>
+                    <th>Ventosas <br>En Posicion</th>
+                    <th>Boquilla<br> Aerea </th>
+                    <th>Boquilla<br> Bajo Piso </th>
+                    <th>Luces <br>Buen Estado </th>
+                    <th>Camara <br>Funcionando </th>
+                    <th>OA</th>
+                    <th>OC</th>
+                    <th>HORA</th>
+                    <th>Luz Salida</th>
+                    <th>Usuario</th>
+                    <th>Accion</th>
+                  </tr>
+              </thead>
+              
+              {% if protocolo.id == idv %}
+
+              {% endif %}
+              <tbody>
+                  {% for protocolo in protocolos %}
+                  <tr {% if protocolo.id is idv  %}class="info"{% endif %}>
+                    <td>{{ protocolo.fechaprotocolo }}</td>
+                    <td>{{ protocolo.historialeventos }}</td>
+                    <td>{{ protocolo.temperaturadata }}</td>
+                    <td>{{ protocolo.humedaddata }}</td>
+                    <td>{{ protocolo.revisionequipos }}</td>
+                    <td>{{ protocolo.observaciones }}</td>
+                    <td>{{ protocolo.panelregulado }}</td>
+                    <td>{{ protocolo.panelnoregulado }}</td>
+                    <td>{{ protocolo.ventosasenposicion }}</td>
+                    <td>{{ protocolo.boquillaaerea }}</td>
+                    <td>{{ protocolo.boquillabajopiso }}</td>
+                    <td>{{ protocolo.lucesprincipalesbuenestado }}</td>
+                    <td>{{ protocolo.camarafuncionando }}</td>
+                    <td>{{ protocolo.oaverde }}</td>
+                    <td>{{ protocolo.ocverde }}</td>
+                    <td>{{ protocolo.hora }}</td>
+                    <td>{{ protocolo.lucessalida }}</td>
+                    <td>{{ protocolo.usuario }}</td>
+                       <!--Para eliminar -->
+                      <td>
+                      <a onclick="if (!confirm('Esta Seguro que desea eliminar')) return false;" href="{% url 'eliminar_protocolo' protocolo.id %}" ><span class="glyphicon glyphicon-remove"></span></a>
+
+                        <a href="{% url 'editar_protocolo' protocolo.id %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+      </div>
+  
+	
+{% endblock contenido %}

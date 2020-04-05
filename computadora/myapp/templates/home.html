@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css">
+  <style>
+    .login:hover { text-decoration: none }
+
+
+  </style>
+    
+     </head> 
+         <body>
+            <p>
+              <div class="col-md-3 col-md-offset-5">
+                <img  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQHiX0b6_vzeU2C3PUeaOUdI9mHzQ5fCcl9-MoF8iOpD7AdYbtb" width="150" height="150" alt="">
+              
+              </div>
+
+            
+            </p>
+
+            <div class="container">
+              <div class="row">
+            <div class="col-md-3 col-md-offset-4">
+           <body>
+             <font color="Olive" face="Aria,arial">
+             <strong>
+                 <h3 style="color:#000080" align="center"><b>INICIO DE SESIÓN</b></h3>
+              </strong>
+                     
+           </body>
+               <hr>
+
+                 
+                 <form action="{% url 'login' %}" method="post" class=" form-signin">
+                      {% csrf_token %}
+                      {{ login_form.as_p }}
+                      <input type="submit" value="Iniciar sesión" class="btn btn-lg btn-success btn-block btn-signin" >
+                  </form>
+                  <hr>
+
+            </div>
+         </div>
+
+      </body>
+</html>
+
+
+
+  
