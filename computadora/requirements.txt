@@ -7,7 +7,7 @@ Pillow==7.0.0
 python-decouple==3.3
 pytz==2019.3
 reportlab==3.5.34
-sqlparse==0.3.0
+sqlparse==0.4.4
 virtualenv==16.4.3
 virtualenvwrapper-win==1.2.5
 whitenoise==5.0.1
